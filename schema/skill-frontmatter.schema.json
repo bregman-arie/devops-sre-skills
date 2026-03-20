@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "devops-sre-skills front matter",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "description",
+    "tags",
+    "maturity",
+    "inputs",
+    "outputs",
+    "tools_allowed",
+    "safety"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "name": { "type": "string", "minLength": 3 },
+    "description": { "type": "string", "minLength": 10 },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "maturity": {
+      "type": "string",
+      "enum": ["draft", "stable", "deprecated"]
+    },
+    "inputs": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "outputs": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "tools_allowed": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "safety": {
+      "type": "object",
+      "required": ["default_mode", "forbidden"],
+      "properties": {
+        "default_mode": {
+          "type": "string",
+          "enum": ["read_only", "mutating"]
+        },
+        "forbidden": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "requires_confirmation_for": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

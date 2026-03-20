@@ -1,0 +1,26 @@
+name: Skill request
+description: Request a new skill
+title: "skill: <short name>"
+labels: ["skill-request"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What operational problem should this skill solve?
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: What is in-scope and out-of-scope?
+    validations:
+      required: true
+  - type: textarea
+    id: signals
+    attributes:
+      label: Signals
+      description: What logs/metrics/events should the skill use?
+    validations:
+      required: false

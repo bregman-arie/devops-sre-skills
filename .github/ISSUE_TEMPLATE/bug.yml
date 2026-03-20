@@ -1,0 +1,26 @@
+name: Bug / incorrect skill
+description: Report incorrect or unsafe guidance
+title: "bug: <skill-id> - <short summary>"
+labels: ["bug"]
+body:
+  - type: input
+    id: skill_id
+    attributes:
+      label: Skill id
+      placeholder: diagnose-crashloop
+    validations:
+      required: true
+  - type: textarea
+    id: issue
+    attributes:
+      label: What is wrong?
+      description: Describe the incorrect guidance and the expected behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Safety impact
+      description: Does this risk data loss, downtime, or security exposure?
+    validations:
+      required: false
